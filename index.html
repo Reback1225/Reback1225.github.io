@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>贪吃蛇 Snake</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="topbar">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <h1>Snake</h1>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <span class="label">分数</span>
+            <span class="value" id="score">0</span>
+          </div>
+          <div class="stat">
+            <span class="label">最高分</span>
+            <span class="value" id="best">0</span>
+          </div>
+          <div class="stat">
+            <span class="label">速度</span>
+            <span class="value" id="speed">1x</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="game-card">
+        <div class="canvas-wrap">
+          <canvas id="game" tabindex="0" aria-label="贪吃蛇游戏画布" role="img"></canvas>
+        </div>
+
+        <div class="overlay" id="overlay">
+          <div class="overlay-inner">
+            <h2 id="overlay-title">贪吃蛇</h2>
+            <p id="overlay-text">使用方向键或 WASD 操作，吃到红色食物得分。</p>
+            <div class="hint-grid">
+              <div class="hint"><kbd>Enter</kbd> 开始/重新开始</div>
+              <div class="hint"><kbd>P</kbd> 暂停/继续</div>
+              <div class="hint"><kbd>Esc</kbd> 返回开始界面</div>
+            </div>
+            <div class="overlay-actions">
+              <button class="btn" id="btnStart" type="button">开始游戏</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="controls">
+        <div class="control-group">
+          <div class="control-title">操作</div>
+          <div class="control-text">← ↑ → ↓ 或 WASD；不要直接反向。</div>
+        </div>
+        <div class="control-group">
+          <div class="control-title">手机</div>
+          <div class="control-text">可在画布上滑动进行方向控制。</div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="./snake.js"></script>
+  </body>
+</html>
+
