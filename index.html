@@ -1,89 +1,147 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Cyber-resume — static demo for GitHub Pages" />
-    <title>ROOT@RESUME :: classified</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
+    <title>晴天演唱会之夜</title>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="crt" aria-hidden="true"></div>
-    <a class="skip" href="#main">跳过装饰区</a>
-
-    <header class="shell">
-      <div class="shell__bar">
-        <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
-        <span class="shell__title">guest@reback1225:~</span>
-        <span class="shell__clock" id="clock">--:--:--</span>
-      </div>
-      <pre class="ascii" aria-hidden="true">
- ██████╗ ███████╗███████╗██╗   ██╗███╗   ███╗███████╗
- ██╔══██╗██╔════╝██╔════╝██║   ██║████╗ ████║██╔════╝
- ██████╔╝█████╗  ███████╗██║   ██║██╔████╔██║█████╗
- ██╔══██╗██╔══╝  ╚════██║██║   ██║██║╚██╔╝██║██╔══╝
- ██║  ██║███████╗███████║╚██████╔╝██║ ╚═╝ ██║███████╗
- ╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
-      </pre>
-      <p class="bootline"><span id="boot-seq"></span><span class="cursor">▌</span></p>
-    </header>
-
-    <main id="main" class="terminal">
-      <section class="block" aria-labelledby="identity-h">
-        <h2 id="identity-h" class="block__head">
-          <span class="prompt">$</span> whoami <span class="tag">[PUBLIC_KEY]</span>
-        </h2>
-        <div class="block__body">
-          <h1 class="name" id="rand-name">—</h1>
-          <p class="subtitle" id="rand-title">—</p>
-          <ul class="meta" id="rand-contact"></ul>
+    <div class="app" id="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand__title">晴天演唱会之夜</div>
+          <div class="brand__sub">一对情侣 · 去看周杰伦演唱会 · 全卡通</div>
         </div>
-      </section>
+        <div class="controls">
+          <button class="btn" id="btnMusic" type="button" aria-pressed="false">
+            背景音乐：未加载
+          </button>
+          <button class="btn btn--ghost" id="btnLights" type="button" aria-pressed="true">
+            灯光：开
+          </button>
+        </div>
+      </header>
 
-      <section class="block" aria-labelledby="skills-h">
-        <h2 id="skills-h" class="block__head">
-          <span class="prompt">$</span> cat ./skills.json <span class="tag">--pretty</span>
-        </h2>
-        <ul class="skills" id="rand-skills"></ul>
-      </section>
+      <main class="stage">
+        <section class="arena" aria-label="演唱会现场">
+          <div class="sky">
+            <div class="cloud cloud--1"></div>
+            <div class="cloud cloud--2"></div>
+            <div class="cloud cloud--3"></div>
+            <div class="shooting shooting--1"></div>
+            <div class="shooting shooting--2"></div>
+          </div>
 
-      <section class="block" aria-labelledby="exp-h">
-        <h2 id="exp-h" class="block__head">
-          <span class="prompt">$</span> journalctl -u career <span class="tag">--since</span> random
-        </h2>
-        <ol class="timeline" id="rand-exp"></ol>
-      </section>
+          <div class="lights" aria-hidden="true">
+            <div class="beam beam--1"></div>
+            <div class="beam beam--2"></div>
+            <div class="beam beam--3"></div>
+            <div class="beam beam--4"></div>
+            <div class="beam beam--5"></div>
+          </div>
 
-      <section class="block" aria-labelledby="edu-h">
-        <h2 id="edu-h" class="block__head">
-          <span class="prompt">$</span> gpg --verify education.asc
-        </h2>
-        <ul class="edu" id="rand-edu"></ul>
-      </section>
+          <div class="screen">
+            <div class="screen__title">JAY · LIVE</div>
+            <div class="screen__line" id="screenLine">点击周杰伦本人，他就开始唱歌。</div>
+          </div>
 
-      <section class="block" aria-labelledby="proj-h">
-        <h2 id="proj-h" class="block__head">
-          <span class="prompt">$</span> ls -la ~/repos/
-        </h2>
-        <ul class="projects" id="rand-proj"></ul>
-      </section>
+          <div class="platform">
+            <div class="platform__edge"></div>
 
-      <footer class="footer">
-        <p>
-          <span class="prompt">#</span> session token:
-          <code id="session-id">—</code>
-          · <button type="button" class="btn" id="reroll">↻ reroll_profile</button>
-        </p>
-        <p class="fine">GitHub Pages · 纯静态 · 无构建</p>
-      </footer>
-    </main>
+            <button
+              class="jay"
+              id="jay"
+              type="button"
+              aria-label="周杰伦（点击开始唱歌/暂停）"
+            >
+              <div class="jay__halo"></div>
+              <div class="jay__body">
+                <div class="jay__head">
+                  <div class="jay__hair"></div>
+                  <div class="jay__face">
+                    <div class="jay__brow"></div>
+                    <div class="jay__eyes">
+                      <span class="jay__eye"></span>
+                      <span class="jay__eye"></span>
+                    </div>
+                    <div class="jay__mouth" aria-hidden="true"></div>
+                  </div>
+                </div>
+                <div class="jay__torso"></div>
+                <div class="jay__arm jay__arm--left"></div>
+                <div class="jay__arm jay__arm--right"></div>
+                <div class="jay__leg jay__leg--left"></div>
+                <div class="jay__leg jay__leg--right"></div>
+              </div>
+              <div class="mic" aria-hidden="true">
+                <div class="mic__head"></div>
+                <div class="mic__stick"></div>
+                <div class="mic__wire"></div>
+              </div>
+              <div class="lyrics" aria-hidden="true">
+                <span>晴天</span>
+                <span>你从不说</span>
+                <span>我想你</span>
+              </div>
+            </button>
+          </div>
 
-    <script src="resume.js" defer></script>
+          <div class="crowd" aria-label="观众区">
+            <div class="row row--back">
+              <div class="fan"></div><div class="fan"></div><div class="fan"></div><div class="fan"></div><div class="fan"></div><div class="fan"></div><div class="fan"></div>
+            </div>
+            <div class="row row--mid">
+              <div class="fan"></div><div class="fan"></div><div class="fan"></div><div class="fan"></div><div class="fan"></div><div class="fan"></div><div class="fan"></div><div class="fan"></div>
+            </div>
+            <div class="row row--front">
+              <div class="couple" aria-label="情侣">
+                <div class="person person--a">
+                  <div class="person__head"></div>
+                  <div class="person__hair"></div>
+                  <div class="person__body"></div>
+                  <div class="person__hand person__hand--right"></div>
+                </div>
+                <div class="person person--b">
+                  <div class="person__head"></div>
+                  <div class="person__hair"></div>
+                  <div class="person__body"></div>
+                  <div class="person__hand person__hand--left"></div>
+                </div>
+                <div class="heart" aria-hidden="true"></div>
+              </div>
+              <div class="fan"></div><div class="fan"></div><div class="fan"></div><div class="fan"></div><div class="fan"></div><div class="fan"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="info" aria-label="说明">
+          <div class="card">
+            <div class="card__title">把《晴天》放进来</div>
+            <div class="card__body">
+              <p>
+                由于版权原因，我不能直接把《晴天》音频放进仓库。你只需要把音频文件放到
+                <code>assets/qingtian.mp3</code>（或 .ogg）即可。
+              </p>
+              <p class="muted">
+                你也可以改 <code>main.js</code> 里的音频路径。加载成功后，右上角按钮会变成“背景音乐：播放/暂停”。
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__title">交互</div>
+            <div class="card__body">
+              <ul>
+                <li>点击 <b>周杰伦</b>：切换“唱歌/暂停”的卡通动画，并同步播放/暂停音乐。</li>
+                <li>点击右上角 <b>灯光</b>：开关舞台光束。</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <audio id="bgm" preload="auto" loop></audio>
+    <script src="./main.js"></script>
   </body>
 </html>
