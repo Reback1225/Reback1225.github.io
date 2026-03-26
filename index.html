@@ -1,68 +1,89 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>贪吃蛇 Snake</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <meta name="description" content="Cyber-resume — static demo for GitHub Pages" />
+    <title>ROOT@RESUME :: classified</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <main class="wrap">
-      <header class="topbar">
-        <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
-          <h1>Snake</h1>
-        </div>
-        <div class="stats">
-          <div class="stat">
-            <span class="label">分数</span>
-            <span class="value" id="score">0</span>
-          </div>
-          <div class="stat">
-            <span class="label">最高分</span>
-            <span class="value" id="best">0</span>
-          </div>
-          <div class="stat">
-            <span class="label">速度</span>
-            <span class="value" id="speed">1x</span>
-          </div>
-        </div>
-      </header>
+    <div class="crt" aria-hidden="true"></div>
+    <a class="skip" href="#main">跳过装饰区</a>
 
-      <section class="game-card">
-        <div class="canvas-wrap">
-          <canvas id="game" tabindex="0" aria-label="贪吃蛇游戏画布" role="img"></canvas>
-        </div>
+    <header class="shell">
+      <div class="shell__bar">
+        <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+        <span class="shell__title">guest@reback1225:~</span>
+        <span class="shell__clock" id="clock">--:--:--</span>
+      </div>
+      <pre class="ascii" aria-hidden="true">
+ ██████╗ ███████╗███████╗██╗   ██╗███╗   ███╗███████╗
+ ██╔══██╗██╔════╝██╔════╝██║   ██║████╗ ████║██╔════╝
+ ██████╔╝█████╗  ███████╗██║   ██║██╔████╔██║█████╗
+ ██╔══██╗██╔══╝  ╚════██║██║   ██║██║╚██╔╝██║██╔══╝
+ ██║  ██║███████╗███████║╚██████╔╝██║ ╚═╝ ██║███████╗
+ ╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
+      </pre>
+      <p class="bootline"><span id="boot-seq"></span><span class="cursor">▌</span></p>
+    </header>
 
-        <div class="overlay" id="overlay">
-          <div class="overlay-inner">
-            <h2 id="overlay-title">贪吃蛇</h2>
-            <p id="overlay-text">使用方向键或 WASD 操作，吃到红色食物得分。</p>
-            <div class="hint-grid">
-              <div class="hint"><kbd>Enter</kbd> 开始/重新开始</div>
-              <div class="hint"><kbd>P</kbd> 暂停/继续</div>
-              <div class="hint"><kbd>Esc</kbd> 返回开始界面</div>
-            </div>
-            <div class="overlay-actions">
-              <button class="btn" id="btnStart" type="button">开始游戏</button>
-            </div>
-          </div>
+    <main id="main" class="terminal">
+      <section class="block" aria-labelledby="identity-h">
+        <h2 id="identity-h" class="block__head">
+          <span class="prompt">$</span> whoami <span class="tag">[PUBLIC_KEY]</span>
+        </h2>
+        <div class="block__body">
+          <h1 class="name" id="rand-name">—</h1>
+          <p class="subtitle" id="rand-title">—</p>
+          <ul class="meta" id="rand-contact"></ul>
         </div>
       </section>
 
-      <footer class="controls">
-        <div class="control-group">
-          <div class="control-title">操作</div>
-          <div class="control-text">← ↑ → ↓ 或 WASD；不要直接反向。</div>
-        </div>
-        <div class="control-group">
-          <div class="control-title">手机</div>
-          <div class="control-text">可在画布上滑动进行方向控制。</div>
-        </div>
+      <section class="block" aria-labelledby="skills-h">
+        <h2 id="skills-h" class="block__head">
+          <span class="prompt">$</span> cat ./skills.json <span class="tag">--pretty</span>
+        </h2>
+        <ul class="skills" id="rand-skills"></ul>
+      </section>
+
+      <section class="block" aria-labelledby="exp-h">
+        <h2 id="exp-h" class="block__head">
+          <span class="prompt">$</span> journalctl -u career <span class="tag">--since</span> random
+        </h2>
+        <ol class="timeline" id="rand-exp"></ol>
+      </section>
+
+      <section class="block" aria-labelledby="edu-h">
+        <h2 id="edu-h" class="block__head">
+          <span class="prompt">$</span> gpg --verify education.asc
+        </h2>
+        <ul class="edu" id="rand-edu"></ul>
+      </section>
+
+      <section class="block" aria-labelledby="proj-h">
+        <h2 id="proj-h" class="block__head">
+          <span class="prompt">$</span> ls -la ~/repos/
+        </h2>
+        <ul class="projects" id="rand-proj"></ul>
+      </section>
+
+      <footer class="footer">
+        <p>
+          <span class="prompt">#</span> session token:
+          <code id="session-id">—</code>
+          · <button type="button" class="btn" id="reroll">↻ reroll_profile</button>
+        </p>
+        <p class="fine">GitHub Pages · 纯静态 · 无构建</p>
       </footer>
     </main>
 
-    <script src="./snake.js"></script>
+    <script src="resume.js" defer></script>
   </body>
 </html>
-
