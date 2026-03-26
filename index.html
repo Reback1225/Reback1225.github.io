@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>晴天演唱会之夜</title>
+    <title>周杰伦 · 演唱会卡通场景</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <div class="app" id="app">
       <header class="topbar">
         <div class="brand">
-          <div class="brand__title">晴天演唱会之夜</div>
-          <div class="brand__sub">一对情侣 · 去看周杰伦演唱会 · 全卡通</div>
+          <div class="brand__title">周杰伦 · 演唱会之夜</div>
+          <div class="brand__sub">舞台中央 · 情侣观众在下方</div>
         </div>
         <div class="controls">
           <button class="btn" id="btnMusic" type="button" aria-pressed="false">
@@ -23,8 +23,8 @@
         </div>
       </header>
 
-      <main class="stage">
-        <section class="arena" aria-label="演唱会现场">
+      <main class="stage" aria-label="演唱会场景">
+        <section class="arena" aria-label="舞台与观众">
           <div class="sky">
             <div class="cloud cloud--1"></div>
             <div class="cloud cloud--2"></div>
@@ -87,7 +87,7 @@
             </button>
           </div>
 
-          <div class="crowd" aria-label="观众区">
+          <div class="crowd" aria-label="观众区（情侣在下方）">
             <div class="row row--back">
               <div class="fan"></div><div class="fan"></div><div class="fan"></div><div class="fan"></div><div class="fan"></div><div class="fan"></div><div class="fan"></div>
             </div>
@@ -111,30 +111,6 @@
                 <div class="heart" aria-hidden="true"></div>
               </div>
               <div class="fan"></div><div class="fan"></div><div class="fan"></div><div class="fan"></div><div class="fan"></div><div class="fan"></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="info" aria-label="说明">
-          <div class="card">
-            <div class="card__title">把《晴天》放进来</div>
-            <div class="card__body">
-              <p>
-                由于版权原因，我不能直接把《晴天》音频放进仓库。你只需要把音频文件放到
-                <code>assets/qingtian.mp3</code>（或 .ogg）即可。
-              </p>
-              <p class="muted">
-                你也可以改 <code>main.js</code> 里的音频路径。加载成功后，右上角按钮会变成“背景音乐：播放/暂停”。
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card__title">交互</div>
-            <div class="card__body">
-              <ul>
-                <li>点击 <b>周杰伦</b>：切换“唱歌/暂停”的卡通动画，并同步播放/暂停音乐。</li>
-                <li>点击右上角 <b>灯光</b>：开关舞台光束。</li>
-              </ul>
             </div>
           </div>
         </section>
